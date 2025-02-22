@@ -6,8 +6,9 @@
 #include <QPushButton>
 #include <QListWidget>
 #include <QLabel>
+#include <QProcess>
+#include <QMessageBox>
 
-#include <QNetworkConfigurationManager>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -24,14 +25,15 @@ public:
 private slots:
     void connectBtnSlot();
     void scanWifiSlot();
+    void readWifiScanResults();
 
 private:
     Ui::MainWindow *ui;
     QPushButton *connectBtnPtr_ = nullptr;
+    QPushButton *rescanBtnPtr_ = nullptr;
     QLabel *statusLabelPtr_ = nullptr;
     QLineEdit *passwordEditPtr_ = nullptr;
     QListWidget *wifiListPtr_ = nullptr;
-
-    QNetworkConfigurationManager *networkManager;
+    QProcess *process_; 
 };
 #endif // MAINWINDOW_Hs
